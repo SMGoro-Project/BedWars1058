@@ -333,11 +333,11 @@ public class DamageDeathMove implements Listener {
             e.setDeathMessage(null);
         }
         if (a != null) {
-            if (a.isSpectator(victim)) {
+            if (a.isSpectator(victim) && victim.hasPermission("group.be")) {
                 victim.spigot().respawn();
                 return;
             }
-            if (a.getStatus() != GameState.playing) {
+            if (a.getStatus() != GameState.playing && victim.hasPermission("group.be")) {
                 victim.spigot().respawn();
                 return;
             }
